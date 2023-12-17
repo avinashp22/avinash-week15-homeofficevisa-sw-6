@@ -12,7 +12,6 @@ public class VisaConfirmationTest {
     public void iAmOnHomepage() {
     }
 
-
     @When("I click on accept cookies")
     public void iClickOnAcceptCookies() {
         new StartPage().acceptAllCookies();
