@@ -1,8 +1,10 @@
 Feature: Country Feature
 
 Scenario: Verify the following country available in country dropdown list
-Given I am on home page
+Given I am on homepage
+When I click on accept cookies
 When I click on start button
+And I click on start button
 Then I can see following country into dropdown
 |albania|
 |bhutan|

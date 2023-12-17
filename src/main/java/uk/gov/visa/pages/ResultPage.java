@@ -1,31 +1,44 @@
 package uk.gov.visa.pages;
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import uk.gov.visa.utility.Utility;
 
 public class ResultPage extends Utility {
 
+    private static final Logger log = LogManager.getLogger(ResultPage.class.getName());
+
+    public ResultPage() {
+        PageFactory.initElements(driver, this);
+    }
+
     @CacheLookup
     @FindBy(xpath = "//h2[contains(text(),'You will not need a visa to come to the UK')]")
-    WebElement resultMessage;
-
+    WebElement verifyResultTourism;
     @CacheLookup
     @FindBy(xpath = "//h2[contains(text(),'You need a visa to work in health and care')]")
-    WebElement healthAndCareVisa;
+    WebElement verifyResultHealthCare;
     @CacheLookup
-    @FindBy(xpath = "//h2[normalize-space()='You may need a visa']")
-    WebElement resultMessageYouMayNeedAVisa;
+    @FindBy(xpath = "//h2[contains(text(),'You may need a visa')]")
+    WebElement verifyResultFamily;
 
-    public String getResultMessage() {
-        return getTextFromElement(resultMessage);
+    public String getResultMessageTourism() {
+        log.info("Getting result message tourism: " + verifyResultTourism.toString());
+        return getTextFromElement(verifyResultTourism);
     }
-    public String getResultMessageForHealthAndCareVisa() {
-        return getTextFromElement(healthAndCareVisa);
+
+    public String getResultMessageHealthCare() {
+        log.info("Getting result message healthcare: " + verifyResultHealthCare.toString());
+        return getTextFromElement(verifyResultHealthCare);
     }
-    public String getResultMessageYouMayNeedAVisa() {
-        return getTextFromElement(resultMessageYouMayNeedAVisa);
+
+    public String getResultMessageFamily() {
+        log.info("Getting result message family: " + verifyResultFamily.toString());
+        return getTextFromElement(verifyResultFamily);
     }
 }

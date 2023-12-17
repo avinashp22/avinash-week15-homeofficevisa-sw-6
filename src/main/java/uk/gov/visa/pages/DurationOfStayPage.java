@@ -1,40 +1,48 @@
 package uk.gov.visa.pages;
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import uk.gov.visa.utility.Utility;
 
 public class DurationOfStayPage extends Utility {
 
-    @CacheLookup
-    @FindBy(xpath = "//button[normalize-space() = '6 months or less')]")
-    WebElement lessThanSixMonths;
-    @CacheLookup
-    @FindBy(xpath = "//input[@id='response-1']")
-    WebElement moreThanSixMonths;
-    @CacheLookup
-    @FindBy(xpath = "//button[contains(text(),'Continue')]")
-    WebElement nextStepButton;
+    private static final Logger log = LogManager.getLogger(DurationOfStayPage.class.getName());
 
-//    public void selectLengthOfStay(String moreOrLess) {
-//        switch (moreOrLess) {
-//            case "1":
-//                clickOnElement(lessThanSixMonths);
-//                break;
-//            case "2":
-//                clickOnElement(moreThanSixMonths);
-//                break;
-//        }
-//    }
-
-    public void clickOnLongerThan6Months(){
-        clickOnElement(moreThanSixMonths);
-
+    public DurationOfStayPage() {
+        PageFactory.initElements(driver, this);
     }
 
-    public void clickNextStepButton() {
-        clickOnElement(nextStepButton);
+    @CacheLookup
+    @FindBy(xpath = "//button[contains(text(),'Continue')]")
+    WebElement continueButton;
+    @CacheLookup
+    @FindBy(id = "response-0")
+    WebElement lessThanSixMonths;
+    @CacheLookup
+    @FindBy(id = "response-1")
+    WebElement moreThanSixMonths;
+
+    public void selectLengthOfStay(String moreOrLess) {
+        log.info("Selecting length of stay: ");
+        switch (moreOrLess) {
+            case "6 months or less":
+                clickOnElement(lessThanSixMonths);
+                break;
+            case "longer than 6 months":
+                clickOnElement(moreThanSixMonths);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void clickOnContinueButton() {
+        log.info("Clicking on continue button: " + continueButton.toString());
+        clickOnElement(continueButton);
     }
 }

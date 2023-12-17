@@ -1,32 +1,36 @@
 package uk.gov.visa.pages;
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import uk.gov.visa.utility.Utility;
 
 public class StartPage extends Utility {
 
+    private static final Logger log = LogManager.getLogger(StartPage.class.getName());
+
+    public StartPage() {
+        PageFactory.initElements(driver, this);
+    }
+
     @CacheLookup
-    @FindBy(xpath = "//a[normalize-space()='Start now']")
+    @FindBy(partialLinkText = "Start n")
     WebElement startNowButton;
-
-    @CacheLookup
-    @FindBy(xpath = "//button[contains(text(),'Hide this message')]")
-    WebElement hideTheMessage;
-
     @CacheLookup
     @FindBy(xpath = "//button[contains(text(),'Accept additional cookies')]")
     WebElement acceptCookies;
 
-    public void clickStartNow(){
+    public void clickOnStartNowButton() {
+        log.info("Clicking on start now button: " + startNowButton.toString());
         clickOnElement(startNowButton);
     }
-    public void acceptAllCookies(){
+
+    public void acceptAllCookies() {
+        log.info("Accepting all cookies: " + acceptCookies.toString());
         clickOnElement(acceptCookies);
-    }
-    public void clickOnHideThisMessage (){
-        clickOnElement(hideTheMessage);
     }
 }

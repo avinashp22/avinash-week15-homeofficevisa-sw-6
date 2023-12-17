@@ -1,26 +1,43 @@
 package uk.gov.visa.pages;
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import uk.gov.visa.utility.Utility;
+
+import java.util.List;
 
 public class WorkTypePage extends Utility {
 
-    @CacheLookup
-    @FindBy(xpath = "//input[@id='response-0']")
-    WebElement selectJobTypeList;
+    private static final Logger log = LogManager.getLogger(WorkTypePage.class.getName());
+
+    public WorkTypePage() {
+        PageFactory.initElements(driver, this);
+    }
 
     @CacheLookup
     @FindBy(xpath = "//button[contains(text(),'Continue')]")
-    WebElement nextStepButton;
+    WebElement continueButton;
+    @CacheLookup
+    @FindBy(xpath = "//div[@class='govuk-radios']//label")
+    List<WebElement> selectTypesOfJob;
 
-    public void selectJobType(String job){
-        clickOnElement(selectJobTypeList);
-
+    public void selectJobTypes(String job) {
+        log.info("Selecting job types: " + selectTypesOfJob.toString());
+        for (WebElement jobType : selectTypesOfJob){
+            if (jobType.getText().equalsIgnoreCase(job)) {
+                clickOnElement(jobType);
+                break;
+            }
+        }
     }
-    public void clickNextStepButton(){
-        clickOnElement(nextStepButton);
+
+    public void clickOnContinueButton() {
+        log.info("Clicking on continue button: " + continueButton.toString());
+        clickOnElement(continueButton);
     }
 }
