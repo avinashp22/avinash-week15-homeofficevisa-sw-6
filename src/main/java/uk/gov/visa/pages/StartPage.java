@@ -20,6 +20,7 @@ public class StartPage extends Utility {
     @CacheLookup
     @FindBy(partialLinkText = "Start n")
     WebElement startNowButton;
+
     @CacheLookup
     @FindBy(xpath = "//button[contains(text(),'Accept additional cookies')]")
     WebElement acceptCookies;

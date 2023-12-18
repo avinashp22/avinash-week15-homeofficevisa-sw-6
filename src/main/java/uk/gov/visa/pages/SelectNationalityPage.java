@@ -21,9 +21,14 @@ public class SelectNationalityPage extends Utility {
     @CacheLookup
     @FindBy(tagName = "select")
     WebElement selectNationality;
+
     @CacheLookup
     @FindBy(xpath = "//button[contains(text(),'Continue')]")
     WebElement continueButton;
+
+    @CacheLookup
+    @FindBy (xpath = "//select[@id='response']")
+    WebElement nationalityDropDownList;
 
     public void selectNationalityFromDropDown(String nationality) {
         log.info("Selecting nationality from drop down: " + selectNationality.toString());
@@ -34,4 +39,10 @@ public class SelectNationalityPage extends Utility {
         log.info("Clicking on continue button: " + continueButton.toString());
         clickOnElement(continueButton);
     }
+
+    public void selectNationality(String nationality) {
+        log.info("Select Nationality");
+        selectByVisibleTextFromDropDown(nationalityDropDownList, nationality);
+
+}
 }
