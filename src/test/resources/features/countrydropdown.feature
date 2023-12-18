@@ -6,10 +6,10 @@ Feature: Country Feature
     When I click on accept cookies
     When I click on start button
     And I click on start button
-    Then I can see following "<nationality>"
+    Then I can see following "<country>"
     Examples:
 
-      | nationality              |
+      | country              |
       | albania                  |
       | bhutan                   |
       | british-protected-person |

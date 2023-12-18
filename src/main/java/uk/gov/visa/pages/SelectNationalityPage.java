@@ -40,9 +40,9 @@ public class SelectNationalityPage extends Utility {
         clickOnElement(continueButton);
     }
 
-    public void selectNationality(String nationality) {
+    public void selectNationality(String country) {
         log.info("Select Nationality");
-        selectByVisibleTextFromDropDown(nationalityDropDownList, nationality);
+        selectByVisibleTextFromDropDown(nationalityDropDownList, country);
 
 }
 }

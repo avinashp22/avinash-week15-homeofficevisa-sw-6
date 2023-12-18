@@ -182,3 +182,9 @@
 2023-12-18 21:12:889 INFO  StartPage :29 - Clicking on start now button: [[ChromeDriver: chrome on windows (0e40a3d54e03e8078284341621a542bd)] -> partial link text: Start n]
 2023-12-18 21:12:487 INFO  StartPage :29 - Clicking on start now button: Proxy element for: DefaultElementLocator 'By.partialLinkText: Start n'
 2023-12-18 21:12:450 INFO  StartPage :34 - Accepting all cookies: [[ChromeDriver: chrome on windows (54d22f823a9d09d2210355bab89b1e59)] -> xpath: //button[contains(text(),'Accept additional cookies')]]
+2023-12-18 23:12:922 INFO  StartPage :34 - Accepting all cookies: [[ChromeDriver: chrome on windows (f6c3498034642e235d465220b4925dff)] -> xpath: //button[contains(text(),'Accept additional cookies')]]
+2023-12-18 23:12:61 INFO  StartPage :29 - Clicking on start now button: [[ChromeDriver: chrome on windows (f6c3498034642e235d465220b4925dff)] -> partial link text: Start n]
+2023-12-18 23:12:631 INFO  StartPage :29 - Clicking on start now button: Proxy element for: DefaultElementLocator 'By.partialLinkText: Start n'
+2023-12-18 23:12:337 INFO  StartPage :34 - Accepting all cookies: [[ChromeDriver: chrome on windows (d12428e5e878f086b74e4b5a7075e87d)] -> xpath: //button[contains(text(),'Accept additional cookies')]]
+2023-12-18 23:12:592 INFO  StartPage :29 - Clicking on start now button: [[ChromeDriver: chrome on windows (d12428e5e878f086b74e4b5a7075e87d)] -> partial link text: Start n]
+2023-12-18 23:12:955 INFO  StartPage :29 - Clicking on start now button: Proxy element for: DefaultElementLocator 'By.partialLinkText: Start n'
