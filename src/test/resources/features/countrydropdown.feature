@@ -1,5 +1,6 @@
 Feature: Country Feature
 
+  @smoke @sanity @regression
   Scenario Outline: Verify the following country available in country dropdown list
     Given I am on homepage
     When I click on accept cookies
